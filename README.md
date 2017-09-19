@@ -1,24 +1,23 @@
-# README
+# spree-project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic bare rails + spree project with a dedicated Dockerfile that enables running this spree app without any ruby\rails related installation/configuration.
 
-Things you may want to cover:
+## Pre requisitis
+Docker installed :-)
 
-* Ruby version
+## To run project:
+```
+docker build -t <your-image-name> .
+docker run -p 3000:3000 --name <your-container-name> -d <your-image-name>
+```
 
-* System dependencies
+Live example:
+```
+docker build -t eyals/spree .
+docker run -p 3000:3000 --name myspree -d eyals/spree
+```
 
-* Configuration
+Entire repo is based on the exquisite Spree project which you can find [here](https://github.com/spree/spree). No credits taken.
 
-* Database creation
+Still for any questions or comments feel free to contact [me](https://github.com/eyalstoler).
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
