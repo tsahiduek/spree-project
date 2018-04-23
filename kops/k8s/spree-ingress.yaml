@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spree-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: spree.rtfm.solutions
+    http:
+      paths:
+      - backend:
+          serviceName: spree
+          servicePort: 3000

@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spree
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    name: http
+    targetPort: 3000
+  selector:
+    app: spree
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: 2018-04-16T15:56:57Z
+  generation: 1
+  labels:
+    app: spree
+    ver: "1"
+  name: spree
+  namespace: default
+  resourceVersion: "100727"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/spree
+  uid: ca6a84b7-418e-11e8-805a-0a2b9fafe996
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spree
+      ver: "1"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spree
+        ver: "1"
+    spec:
+      containers:
+      - image: spreecommerce/spree:latest
+        imagePullPolicy: Always
+        name: spree
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: 2018-04-16T15:56:58Z
+    lastUpdateTime: 2018-04-16T15:56:58Z
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 1
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2

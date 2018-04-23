@@ -1,0 +1,1 @@
+Grafana initial password is 123456

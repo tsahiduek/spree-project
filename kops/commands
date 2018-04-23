@@ -1,0 +1,19 @@
+kops create cluster \
+--name $KOPS_CLUSTER_NAME \
+--zones us-east-1a,us-east-1b,us-east-1c \
+--master-zones us-east-1a,us-east-1b,us-east-1c \
+--node-count 3 \
+--master-count 3 \
+--node-size t2.medium \
+--master-size m3.medium \
+--state $KOPS_STATE_STORE \
+--ssh-public-key "/home/damdam/.ssh/id_rsa.pub" \
+--target=terraform
+
+--target=cloudformation
+--kubernetes-version=1.2.2
+--yes
+
+kops validate cluster
+
+kops delete cluster
