@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   # encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: admin
-  password: 12345678
-  host: spree-db-prod.ck8ttbissdfp.us-east-1.rds.amazonaws.com
+  database: <%= ENV['MYSQL_HOSTNAME'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 development:
   <<: *default
@@ -49,12 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: spree-db-prod.ck8ttbissdfp.us-east-1.rds.amazonaws.com
-  username: admin
-  password: 12345678
-  # password: <%= ENV['MYSTORE_MYSQL_DATABASE_PASSWORD'] %>
-  
-  # <%= ENV['SPREE_DB_HOSTNAME'] %>
-  # <%= ENV['SPREE_DB_PORT'] %>
-  # <%= ENV['SPREE_DB_USER'] %>
-  # <%= ENV['SPREE_DB_PASSWORD'] %>
+  database: <%= ENV['MYSQL_HOSTNAME'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
