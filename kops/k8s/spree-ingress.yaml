@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: spree.rtfm.solutions
+  - host: spree.k8s.rtfm.solutions
     http:
       paths:
       - backend:

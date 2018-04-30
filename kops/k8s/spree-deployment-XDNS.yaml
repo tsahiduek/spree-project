@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: spree
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: spree.rtfm.solutions.
+    external-dns.alpha.kubernetes.io/hostname: spree.k8s.rtfm.solutions.
 spec:
   type: LoadBalancer
   ports:

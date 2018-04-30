@@ -2,7 +2,7 @@ server:
   ingress:
     enabled: true
     hosts:
-      - prometheus.rtfm.solutions
+      - prometheus.k8s.rtfm.solutions
   persistentVolume:
     size: 20Gi
 serverFiles:
