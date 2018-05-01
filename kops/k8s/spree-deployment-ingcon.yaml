@@ -47,7 +47,8 @@ spec:
         ver: "1"
     spec:
       containers:
-      - image: spreecommerce/spree:latest
+      # - image: spreecommerce/spree:latest
+      - image: tsahiduek/td-spree:latest
         imagePullPolicy: Always
         name: spree
         ports:

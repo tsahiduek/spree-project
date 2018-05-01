@@ -27,7 +27,7 @@ echo "Waiting 60 seconds for tiller to deploy"
 sleep 60s
 
 echo "===Deploying ExternalDNS==="
-helm install stable/external-dns -f helm/xdns-values.yaml --name xdns --namespace spree-route
+helm install stable/external-dns -f helm/xdns-values.yaml --name xdns --namespace kube-system
 
 echo "===Deploying nginx ingress controller==="
 helm install stable/nginx-ingress -f helm/nginx-values.yaml --name ingcon --namespace spree-route
