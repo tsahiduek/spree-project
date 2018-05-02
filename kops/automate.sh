@@ -44,3 +44,7 @@ echo "Password has also been written to spree-grafana-pass.txt"
 echo "===Deploying spree==="
 kubectl create -f k8s/spree-deployment-ingcon.yaml
 kubectl create -f k8s/spree-ingress.yaml
+
+
+kubectl create -f k8s/metrics-server-1.8+/
+helm install stable/heapster -f helm/heapster-values.yaml --name heapster --namespace kube-system

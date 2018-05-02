@@ -1,0 +1,14 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spree-env-config
+  namespace: default
+data:
+  MYSQL_HOSTNAME: spree-db-prod.ck8ttbissdfp.us-east-1.rds.amazonaws.com
+  MYSQL_USER: admin
+  MYSQL_PASSWORD: '12345678'
+  RAILS_ENV: development
